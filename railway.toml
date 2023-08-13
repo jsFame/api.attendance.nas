@@ -1,0 +1,17 @@
+[build]
+builder = "nixpacks"
+buildCommand = "npx install -g pnpm && pnpm install && npm run build"
+#dockerfilePath = "Dockerfile.backend"
+
+
+
+[deploy]
+startCommand = "npx pnpm start:prod"
+healthcheckPath = "/health"
+healthcheckTimeout = 60
+restartPolicyType = "on_failure"
+numReplicas = 1
+restartPolicyMaxRetries = 1
+
+
+#https://docs.railway.app/deploy/config-as-code

@@ -1,0 +1,94 @@
+### Dean SignsUp
+POST {{u}}/auth/signup
+Content-Type: application/x-www-form-urlencoded
+
+email=superdean@gmail.com&password=Hiro123@
+
+### Dean Signin
+POST {{u}}/auth/signin
+Content-Type: application/x-www-form-urlencoded
+
+email=superdean@gmail.com&password=Hiro123@
+
+### Get Your Profile
+GET {{u}}/users/me
+
+> {%
+  res = response.body
+  deanId = res.clientId
+  deanEmail = res.email
+
+  client.assert(res.userId >= 1, "dean is a user")
+  client.assert(deanEmail === "superdean@gmail.com", "you are actually dean")
+
+  client.global.set("deanId", deanId)
+  client.global.set("deanEmail", deanEmail)
+
+%}
+
+### Create event
+POST {{u}}/events
+Content-Type: application/json
+
+{
+  "title": "New Catchup-{{$random.uuid}}",
+  "duration": 20,
+  "description": "Working Days catchup call"
+}
+
+> {%
+  eventID = response.body.id;
+  if (eventID) {
+    client.global.set("deanEventId", response.body.id);
+  }
+  client.assert(eventID, "event created")
+%}
+
+### Dean Gets His Host Events
+GET {{u}}/events
+
+> {%
+  d = new Date()
+  d.setHours(d.getHours() + 2);
+  const hours = String(d.getHours()).padStart(2, '0');
+  const minutes = String(d.getMinutes()).padStart(2, '0');
+  slot = `${hours}:${minutes}`;
+  client.log(slot)
+  client.global.set("genTimeSlot", slot)
+
+%}
+
+
+### Set Timeslots for every day
+
+POST {{u}}/timeslots
+Content-Type: application/json
+
+
+{
+  "startTime": "{{genTimeSlot}}",
+  "endTime": "",
+  "available": true,
+  "eventId": "{{deanEventId}}"
+}
+
+### Dean,Reviews His Calendar. Looks up for active sessions
+
+GET {{u}}/calendars/today
+
+> {%
+  calendars = response.body
+  deanId = client.global.get("deanId")
+
+  calendars = Array.from(calendars)
+
+  client.assert(calendars.length >= 0, "Calendar is array")
+
+  client.test("dean is hosting some sessions", () => {
+    cs = calendars.filter((c)=>c.guestId != deanId)
+    client.log(`dean has ${cs.length} guests`)
+    client.assert(cs.length > 0, `dean has ${cs.length} guests`)
+  })
+
+%}
+

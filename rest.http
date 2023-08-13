@@ -1,0 +1,91 @@
+GET {{u}}/calendars
+
+###
+POST {{u}}/calendars
+Content-Type: application/json
+
+{
+  "timeSlotId": "dea96dd3-575e-4408-af76-236ef12d9ead",
+  "eventId": "976b4c94-e4b1-4917-a156-7f6e90294b0d",
+  "date": "2023-07-22"
+}
+
+###
+
+POST {{u}}/timeslots
+Content-Type: application/json
+
+{
+  "startTime": "07:00",
+  "endTime": "07:20",
+  "available": true,
+  "eventId": "976b4c94-e4b1-4917-a156-7f6e90294b0d"
+}
+
+###
+
+GET {{u}}/timeslots
+
+
+###
+
+GET {{u}}/events/976b4c94-e4b1-4917-a156-7f6e90294b0d
+
+
+###
+
+GET {{u}}/events
+
+###
+
+POST {{u}}/events
+Content-Type: application/json
+
+{
+ "title": "Catchup: 20m",
+  "duration": 20,
+  "description":"Daily catchup call"
+}
+
+### Enable Cors
+
+OPTIONS {{u}}
+
+###  update my profile
+
+PATCH {{u}}/users
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoiaGlyb0BnbWFpbC5jb20iLCJpYXQiOjE2ODg5Njk3NzQsImV4cCI6MTY4ODk3MzM3NH0.wiYwslhhjB9hZBeTnmArTXybNmVhr4IEtaPp7Bs2A5Q
+
+{
+  "firstName": "Tadashi",
+  "lastName": "Hamada"
+}
+
+### Me
+GET {{u}}/users/me
+
+
+### Signin
+POST {{u}}/auth/signin
+Content-Type: application/x-www-form-urlencoded
+
+email=hirostudent@gmail.com&password=Hiro*2412412###@##P
+
+
+###  Signup
+POST {{u}}/auth/signup
+Content-Type: application/x-www-form-urlencoded
+
+email=hirostudent@gmail.com&password=Hiro*2412412###@##P
+
+### Health
+
+GET {{u}}/health
+Accept: application/json
+
+### Home
+GET {{u}}
+
+
+
