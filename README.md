@@ -1,9 +1,9 @@
-# api.scheduler.nas
+# api.attendance.nas
 
-[![E2E](https://github.com/jsFame/api.scheduler.nas/actions/workflows/e2e.yaml/badge.svg)](https://github.com/jsFame/api.scheduler.nas/actions/workflows/e2e.yaml)
-[![Technical Documentation](https://github.com/jsFame/api.scheduler.nas/actions/workflows/gitpages.yaml/badge.svg)](https://github.com/jsFame/api.scheduler.nas/actions/workflows/gitpages.yaml)
-[![Docker Builds](https://github.com/jsFame/api.scheduler.nas/actions/workflows/docker.yaml/badge.svg)](https://github.com/jsFame/api.scheduler.nas/actions/workflows/docker.yaml)
-[![Cross-Node18,19,20](https://github.com/jsFame/api.scheduler.nas/actions/workflows/cross.yaml/badge.svg)](https://github.com/jsFame/api.scheduler.nas/actions/workflows/cross.yaml)
+[![E2E](https://github.com/jsFame/api.attendance.nas/actions/workflows/e2e.yaml/badge.svg)](https://github.com/jsFame/api.attendance.nas/actions/workflows/e2e.yaml)
+[![Technical Documentation](https://github.com/jsFame/api.attendance.nas/actions/workflows/gitpages.yaml/badge.svg)](https://github.com/jsFame/api.attendance.nas/actions/workflows/gitpages.yaml)
+[![Docker Builds](https://github.com/jsFame/api.attendance.nas/actions/workflows/docker.yaml/badge.svg)](https://github.com/jsFame/api.attendance.nas/actions/workflows/docker.yaml)
+[![Cross-Node18,19,20](https://github.com/jsFame/api.attendance.nas/actions/workflows/cross.yaml/badge.svg)](https://github.com/jsFame/api.attendance.nas/actions/workflows/cross.yaml)
 
 # Inspiration
 
@@ -54,12 +54,12 @@ Scheduler allows users to register, create and manage their calendar and events
 - Unit tests using Jest
 - Supertest for E2E testing
 
-### Technical documentation using [Compodoc](https://jsfame.github.io/api.scheduler.nas/)
+### Technical documentation using [Compodoc](https://jsfame.github.io/api.attendance.nas/)
 
 As NestJS is heavily inspired by Angular, we can generate the documentation about project
 structure modules, controllers, services etc. I have generated the docs.
 
-Find 'em here - https://jsfame.github.io/api.scheduler.nas/
+Find 'em here - https://jsfame.github.io/api.attendance.nas/
 
 ## Installation
 

@@ -1,7 +1,7 @@
 {
-  "name": "api.scheduler.nas",
+  "name": "api.attendance.nas",
   "version": "0.1.0",
-  "description": "API Server of api.scheduler.nas",
+  "description": "API Server of attendance.nas- a attendance tracker for employees and students",
   "author": "laciferin@gmail.com",
   "private": true,
   "license": "MIT",
@@ -112,10 +112,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jsFame/api.scheduler.nas"
+    "url": "https://github.com/jsFame/api.attendance.nas"
   },
   "bugs": {
-    "url": "https://github.com/jsFame/api.scheduler.nas/issues"
+    "url": "https://github.com/jsFame/api.attendance.nas/issues"
   },
-  "homepage": "https://github.com/jsFame/api.scheduler.nas"
+  "homepage": "https://github.com/jsFame/api.attendance.nas"
 }
