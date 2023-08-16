@@ -25,6 +25,23 @@ model User {
   @@map("users")
 }
 
+model Student {
+  id Int @id @default(sequence(minValue: 1)) @db.Int4
+
+  email String @unique
+  hash  String
+
+  firstName String?
+  lastName  String?
+  Event     Event[]
+  Calendar  Calendar[]
+
+  createdAt DateTime @default(now()) @db.Timestamptz()
+  updatedAt DateTime @updatedAt @db.Timestamptz()
+
+  @@map("users")
+}
+
 model Event {
   // hosting an event
   id          String  @id @default(uuid())
@@ -42,6 +59,8 @@ model Event {
 
   createdAt DateTime @default(now()) @db.Timestamptz()
   updatedAt DateTime @updatedAt @db.Timestamptz()
+  Student   Student? @relation(fields: [studentId], references: [id])
+  studentId Int?     @db.Int4
 
   @@unique([hostId, title, duration])
   @@map("events")
@@ -78,6 +97,8 @@ model Calendar {
 
   createdAt DateTime @default(now()) @db.Timestamptz()
   updatedAt DateTime @updatedAt @db.Timestamptz()
+  Student   Student? @relation(fields: [studentId], references: [id])
+  studentId Int?     @db.Int4
 
   @@unique([timeSlotId, guestId, date])
   @@map("calendars")
